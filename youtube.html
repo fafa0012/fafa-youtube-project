@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <title>https://supersimple.dev/exercises/youtube</title>
+    <style>
+
+
+
+.one{
+width: 100%;
+}
+
+
+.para1{
+  font-family: roboto, arial;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 25px;
+  margin-bottom: 10px;
+        
+}
+
+@media(min-width: 1000px){
+  .para1{
+   font-size: 16px;
+   line-height: 24px;
+}
+}
+
+.para2{
+  font-family: roboto, arial;
+  font-size: 12px;
+  color: rgb(96, 96, 96);
+
+        
+}
+
+.para3{
+  font-family: roboto, arial;
+  font-size: 12px;
+  color: rgb(96, 96, 96);
+}
+
+
+@media(min-width: 1000px){
+  .para2, .para3{
+   font-size: 14px;
+}
+}
+
+.gridi{
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  column-gap: 10px;
+}
+
+.profile{
+  vertical-align:top;
+  width: 40px;
+  position: relative;
+}
+
+
+.profile-pic{
+  width: 36px;
+  border-radius: 50px;
+  margin-top: 20px;
+}
+
+
+.div1{
+  vertical-align: top;
+}
+
+
+.video-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 16px;
+  row-gap: 20px ;
+}
+
+@media(max-width: 750px){
+  .video-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(min-width: 751px) and (max-width: 999px){
+  .video-grid{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media(min-width: 1000px){
+  .video-grid{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+
+body{
+  margin:  0px;
+  padding-top: 80px;
+  padding-left: 96px;
+  padding-right: 24px;
+  background-color: rgb(247, 246, 246);
+}
+
+@media (min-width: 1200.1px) {
+  body {
+    margin-left: 168px;
+  }
+}
+
+.header{
+  height: 55px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-bottom-width: 1px ;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(198, 198, 198);
+  z-index: 100;
+}
+
+.left{
+  display: flex;
+  align-items: center;
+}
+
+.hamburger{
+  height: 24px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.logo{
+  height: 20px;
+}
+
+
+.middle{
+  flex: 1;
+  margin-left: 70px;
+  margin-right: 35px;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+}
+ 
+.search-button{
+  height: 34px;
+  width: 66px;
+  background-color: rgb(243, 242, 242);
+  border: 1px;
+  border-style: solid;
+  border-color:rgb(192, 192, 192);
+  margin-left: -1px;
+  margin-right: 10px;
+  
+}
+.search-button,
+.voice-button,
+.upload-icon-container,
+.youtube-app-icon-container,
+.notification-icon-container
+{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-button .tooltip,
+.voice-button .tooltip,
+.upload-icon-container .tooltip,
+.youtube-app-icon-container .tooltip,
+.notification-icon-container .tooltip
+{
+  position: absolute;
+  background-color: gray;
+  color: white;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-right: 8px;
+  padding-left: 8px;
+  border-radius: 2px;
+  font-size: 12px;
+  bottom: -30px;
+  opacity: 0;
+  transition: opacity 0.15s;
+  pointer-events: none;
+  white-space: nowrap;
+  font-family: roboto, arial;
+
+}
+.search-button:hover .tooltip,
+.voice-button:hover .tooltip,
+.upload-icon-container:hover .tooltip,
+.youtube-app-icon-container:hover .tooltip,
+.notification-icon-container:hover .tooltip
+{
+  opacity: 1;
+}
+
+.voice-button{
+  height: 34px;
+  width: 34px;
+  border-radius: 20px; 
+  border: none;
+  background-color: rgb(229, 227, 227);
+
+}
+
+.search-bar{
+  flex: 1;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 16px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(211, 210, 210);
+  border-radius: 2px;
+  box-shadow: inset 1px 1px 1px rgb(207, 206, 206);
+  width: 0;
+}
+
+.search-bar::placeholder{
+  font-family: roboto, arial;
+  font-size: 16px;
+}
+
+.search-icon{
+  height: 25px;
+  margin-top: 4px;
+
+}
+
+.voice-icon{
+ height: 24px; 
+ margin-top: 4px;
+}
+
+.right{
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.upload-icon{
+  height: 24px;
+}
+
+.youtube-app-icon{
+  height: 24px;
+}
+
+.notification-icon{
+  height: 24px;
+
+}
+
+
+.current-user-pro{
+  height: 32px;
+  border-radius: 16px;
+
+}
+
+
+
+
+.thumbnail-row{
+  position: relative;
+  margin-bottom: 0px;
+}
+
+.video-time{
+  background-color: black;
+  color: white;
+  position: absolute;
+  bottom: 8px;
+  right: 5px;
+  font-family: Roboto, Arial;
+  font-size: 15px;
+  font-weight: 500;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 2px;
+}
+
+
+
+
+.notification-icon-container{
+  position: relative;
+}
+
+.notifications-count{
+  position: absolute;
+  top: -2px;
+  right: -5px;
+  background-color: rgb(175, 5, 5) ;
+  color: white;
+  font-family: roboto, arial;
+  font-size: 11px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-radius: 10px;
+}
+
+
+
+.sidebar{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 55px;
+  width: 72px;
+  background-color: white;
+  z-index: 200;
+  padding-top: 5px;
+}
+
+
+.sidebar-links{
+  height: 74px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.sidebar-links:hover{
+  background-color: rgb(235, 232, 232);
+}
+
+.sidebar-links img{
+  height: 24px;
+  margin-bottom: 4px;
+}
+
+
+.sidebar-links div{
+  font-family: roboto, arial;
+  font-size: 10px;
+  
+}
+
+@media (max-width: 1200px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 55px;
+    background-color: white;
+    width: 72px;
+    z-index: 200;
+    padding-top: 5px;
+  }
+
+  .sidebar-link {
+    height: 74px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .sidebar-link:hover {
+    background-color: rgb(235, 235, 235);
+  }
+
+  .sidebar-link img {
+    height: 24px;
+    margin-bottom: 4px;
+  }
+
+  .sidebar-link div {
+    font-family: Roboto, Arial;
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 1200.1px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 55px;
+    background-color: white;
+    width: 240px;
+    z-index: 200;
+    padding-top: 13px;
+  }
+
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px 24px;
+  }
+
+  .sidebar-link:hover {
+    background-color: rgb(235, 235, 235);
+  }
+
+  .sidebar-link img {
+    height: 24px;
+    margin-right: 24px;
+  }
+
+  .sidebar-link div {
+    font-family: Roboto, Arial;
+    font-size: 14px;
+  }
+}
+
+
+
+
+
+
+
+.channel-tooltip-picture {
+  width: 45px;
+  height: 45px;
+  border-radius: 50px;
+  margin-right: 8px;
+}
+
+.channel-tooltip-name {
+  font-family: Roboto, Arial;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 0px;
+}
+
+.channel-tooltip-stats {
+  font-family: Roboto, Arial;
+  color: rgb(96, 96, 96);
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.profile-picture-container {
+  position: relative;
+  display: inline-block;
+}
+
+
+.channel-tooltip {
+  background-color: white;
+  width: 200px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  position: absolute;
+  top: 55px;
+  z-index: 300;;
+  display: flex;
+  align-items: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+
+ 
+}
+
+.profile-picture-container:hover .channel-tooltip {
+  opacity: 1;
+}
+
+
+    </style>
+  </head>
+  <body>
+
+<div class="header">
+
+ <div class="left">
+  <img class="hamburger" src="icons/hamburger-menu.svg">
+  <img class="logo" src="icons/youtube-logo.svg">
+ </div>
+
+
+ <div class="middle">
+  <input class="search-bar" type="text" placeholder="Search">
+  <button class="search-button"> <img class="search-icon" src="icons/search.svg">
+  <div class="tooltip">Search</div>
+  </button>
+  <button class="voice-button"><img class="voice-icon" src="icons/voice-search-icon.svg">
+    <div class="tooltip">Search with your voice</div>
+  </button>
+ </div>
+
+<div class="right">
+  <div class="upload-icon-container">
+    <img class="upload-icon" src="icons/upload.svg">
+    <div class="tooltip">Create</div>
+  </div>
+
+ <div class="youtube-app-icon-container">
+  <img class="youtube-app-icon" src="icons/youtube-apps.svg">
+  <div class="tooltip">Youtube apps</div> 
+</div>
+  
+  <div class="notification-icon-container">
+    <img class="notification-icon" src="icons/notifications.svg">
+    <div class="notifications-count">3</div>
+    <div class="tooltip">Notifications</div> 
+
+  </div>
+  <img class="current-user-pro" src="icons/my-channel.jpeg">
+</div>
+</div>
+
+
+
+
+
+
+<div class="sidebar">
+<div class="sidebar-links"><img src="icons/home.svg">
+ <div>Home</div>
+</div>
+<div class="sidebar-links"><img src="icons/explore.svg">
+  <div>Explore</div>
+</div>
+<div class="sidebar-links"><img src="icons/subscriptions.svg">
+  <div>Subscriptions</div>
+</div>
+<div class="sidebar-links"><img src="icons/originals.svg">
+  <div>Originals</div>
+</div>
+<div class="sidebar-links"><img src="icons/youtube-music.svg">
+  <div>Youtube Music</div>
+</div>
+<div class="sidebar-links"><img src="icons/library.svg">
+  <div>Library</div>
+</div>
+</div>
+ 
+
+
+
+
+
+
+
+<div class="video-grid">
+  
+  <div class="div1">
+    <div class="thumbnail-row">
+      <a href="https://www.youtube.com/watch?v=n2RNcPRtAiY" target="_blank">
+     <img class="one" src="intro-to-html/thumbnail-1.webp">
+    </a>
+     <div class="video-time">14:20</div>
+      </div>
+        <div>
+
+              <div class="gridi">
+                <div class="profile">
+                  <div class="profile-picture-container">
+                  <a href="https://www.youtube.com/c/mkbhd" target="_blank">
+                    <img class="profile-pic" src="intro-to-html/channel-1.jpeg">
+                  </a>
+
+                  
+                    <div class="channel-tooltip">
+                     <img class="channel-tooltip-picture" src="intro-to-html/channel-1.jpeg">                    
+                    <div class="tooltip-datail">
+                    <p class="channel-tooltip-name">
+                      Marques Brownlee
+                    </p>
+                    <p class="channel-tooltip-stats">
+                      15M subscribers
+                    </p>
+                  </div>
+                  </div>
+                </div>
+              </div>
+
+              
+
+              
+                                <div class="details">
+                                  <p class="para1">Talking Tech and AI with Google CEO Sundar Pichai!</p>
+                                  <p class="para2">Marques Brownlee</p>
+                                  <p class="para3">3.4M views · 6 months ago</p>
+                                    </div>
+  </div>
+  </div>    
+  </div>
+
+
+
+
+    <div class="div1">
+      <div class="thumbnail-row">
+        <a href="https://www.youtube.com/watch?v=mP0RAo9SKZk" target="_blank">
+        <img class="one" src="intro-to-html/thumbnail-2.webp">
+      </a>
+        <div class="video-time">8:22</div>
+          </div>
+               <div>
+    
+            <div class="gridi">
+              <div class="profile">
+                <div class="profile-picture-container">
+                <a href="https://www.youtube.com/c/markiplier" target="_blank">
+                <img class="profile-pic" src="intro-to-html/channel-2.jpeg">
+              </a>
+              
+              <div class="channel-tooltip">
+                <img class="channel-tooltip-picture" src="intro-to-html/channel-2.jpeg">                    
+               <div class="tooltip-datail">
+               <p class="channel-tooltip-name">
+                Markiplier
+               </p>
+               <p class="channel-tooltip-stats">
+                 15M subscribers
+               </p>
+             </div>
+             </div>
+           </div>
+         </div>            
+                          <div class="details">
+                            <p class="para1">Try Not To Laugh Challenge #9</p>
+                            <p class="para2">Markiplier</p>
+                            <p class="para3">19M views · 4 years ago</p>
+                              </div>
+                                </div>
+                                </div>    
+                                </div>
+
+
+                                
+  <div class="div1">
+    <div class="thumbnail-row">
+      <a href="https://www.youtube.com/watch?v=FgjPQQeTh1w" target="_blank">
+        <img class="one" src="intro-to-html/thumbnail-3.webp">
+      </a>
+          <div class="video-time">9:13</div>
+      </div>
+        <div>
+
+              <div class="gridi">
+                <div class="profile">
+                  <div class="profile-picture-container">
+                  <a href="https://www.youtube.com/user/SSSniperWolf" target="_blank">
+                    <img class="profile-pic" src="intro-to-html/channel-3.jpeg">
+                  </a>
+
+                  <div class="channel-tooltip">
+                    <img class="channel-tooltip-picture" src="intro-to-html/channel-3.jpeg">                    
+                   <div class="tooltip-datail">
+                   <p class="channel-tooltip-name">
+                    SSSniperWolf
+                   </p>
+                   <p class="channel-tooltip-stats">
+                     15M subscribers
+                   </p>
+                 </div>
+                 </div>
+               </div>
+             </div>  
+                                <div class="details">
+                                  <p class="para1">Crazy Tik Toks Taken Moments Before DISASTER</p>
+                                  <p class="para2">SSSniperWolf</p>
+                                  <p class="para3">12M views · 1 year ago</p>
+                                    </div>
+  </div>
+  </div>    
+  </div>
+
+
+
+
+    <div class="div1">
+      <div class="thumbnail-row">
+        <a href="https://www.youtube.com/watch?v=094y1Z2wpJg" target="_blank">
+          <img class="one" src="intro-to-html/thumbnail-4.webp">
+        </a>
+        <div class="video-time">22:09</div>
+          </div>
+               <div>
+    
+            <div class="gridi">
+              <div class="profile">
+                <div class="profile-picture-container">
+                <a href="https://www.youtube.com/c/veritasium" target="_blank">
+                  <img class="profile-pic" src="intro-to-html/channel-4.jpeg">
+                </a>
+
+                <div class="channel-tooltip">
+                  <img class="channel-tooltip-picture" src="intro-to-html/channel-4.jpeg">                    
+                 <div class="tooltip-datail">
+                 <p class="channel-tooltip-name">
+                  Veritasium
+                 </p>
+                 <p class="channel-tooltip-stats">
+                   15M subscribers
+                 </p>
+               </div>
+               </div>
+             </div>
+           </div>  
+                   
+                          <div class="details">
+                            <p class="para1">The Simplest Math Problem No One Can Solve - Collatz Conjecture</p>
+                            <p class="para2">Veritasium</p>
+                            <p class="para3">18M views · 4 months ago</p>
+                              </div>
+                                </div>
+                                </div>    
+                                </div>
+
+
+
+                                
+  <div class="div1">
+    <div class="thumbnail-row">
+      <a href="https://www.youtube.com/watch?v=86CQq3pKSUw" target="_blank">
+        <img class="one" src="intro-to-html/thumbnail-5.webp">
+      </a>
+     <div class="video-time">11:17</div>
+      </div>
+        <div>
+
+              <div class="gridi">
+                <div class="profile">
+                  <div class="profile-picture-container">
+                  <a href="https://www.youtube.com/c/CSDojo" target="_blank">
+                    <img class="profile-pic" src="intro-to-html/channel-5.jpeg">
+                  </a>
+                  <div class="channel-tooltip">
+                    <img class="channel-tooltip-picture" src="intro-to-html/channel-5.jpeg">                    
+                   <div class="tooltip-datail">
+                   <p class="channel-tooltip-name">
+                    CS Dojo
+                   </p>
+                   <p class="channel-tooltip-stats">
+                     15M subscribers
+                   </p>
+                 </div>
+                 </div>
+               </div>
+             </div> 
+                                <div class="details">
+                                  <p class="para1">Kadane's Algorithm to Maximum Sum Subarray Problem</p>
+                                  <p class="para2">CS Dojo</p>
+                                  <p class="para3">519K views · 5 years ago</p>
+                                    </div>
+  </div>
+  </div>    
+  </div>
+
+
+
+
+    <div class="div1">
+      <div class="thumbnail-row">
+        <a href="https://www.youtube.com/watch?v=yXWw0_UfSFg" target="_blank">
+          <img class="one" src="intro-to-html/thumbnail-6.webp">
+        </a>
+        <div class="video-time">19:59</div>
+          </div>
+               <div>
+    
+            <div class="gridi">
+              <div class="profile">
+                <div class="profile-picture-container">
+                <a href="https://www.youtube.com/c/MrBeast6000" target="_blank">
+                  <img class="profile-pic" src="intro-to-html/channel-6.jpeg">
+                </a>
+
+                <div class="channel-tooltip">
+                  <img class="channel-tooltip-picture" src="intro-to-html/channel-6.jpeg">                    
+                 <div class="tooltip-datail">
+                 <p class="channel-tooltip-name">
+                  MrBeast
+                 </p>
+                 <p class="channel-tooltip-stats">
+                   15M subscribers
+                 </p>
+               </div>
+               </div>
+             </div>
+           </div>             
+                          <div class="details">
+                            <p class="para1">Anything You Can Fit In The Circle I’ll Pay For</p>
+                            <p class="para2">MrBeast</p>
+                            <p class="para3">141M views · 1 year ago</p>
+                              </div>
+                                </div>
+                                </div>    
+                                </div>
+
+
+
+
+                                
+    <div class="div1">
+      <div class="thumbnail-row">
+        <a href="https://www.youtube.com/watch?v=fNVa1qMbF9Y" target="_blank">
+          <img class="one" src="intro-to-html/thumbnail-7.webp">
+        </a>
+        <div class="video-time">10:13</div>
+          </div>
+               <div>
+    
+            <div class="gridi">
+              <div class="profile">
+                <div class="profile-picture-container">
+                <a href="https://www.youtube.com/channel/UCP5tjEmvPItGyLhmjdwP7Ww" target="_blank">
+                  <img class="profile-pic" src="intro-to-html/channel-7.jpeg">
+                </a>
+
+                <div class="channel-tooltip">
+                  <img class="channel-tooltip-picture" src="intro-to-html/channel-7.jpeg">                    
+                 <div class="tooltip-datail">
+                 <p class="channel-tooltip-name">
+                  RealLifeLore
+                 </p>
+                 <p class="channel-tooltip-stats">
+                   15M subscribers
+                 </p>
+               </div>
+               </div>
+             </div>
+           </div>             
+                          <div class="details">
+                            <p class="para1">
+                              Why Planes Don't Fly Over Tibet</p>
+                            <p class="para2">RealLifeLore</p>
+                            <p class="para3">6.6M views · 1 year ago</p>
+                              </div>
+                                </div>
+                                </div>    
+                                </div>
+
+
+
+                                <div class="div1">
+                                  <div class="thumbnail-row">
+                                    <a href="https://www.youtube.com/watch?v=lFm4EM1juls" target="_blank">
+                                      <img class="one" src="intro-to-html/thumbnail-8.webp">
+                                    </a>
+                                    <div class="video-time">7:12</div>
+                                      </div>
+                                           <div>
+                                
+                                        <div class="gridi">
+                                          <div class="profile">
+                                            <div class="profile-picture-container">
+                                            <a href="https://www.youtube.com/channel/UCHAK6CyegY22Zj2GWrcaIxg" target="_blank">
+                                              <img class="profile-pic" src="intro-to-html/channel-8.jpeg">
+                                            </a>
+                            
+                                            <div class="channel-tooltip">
+                                              <img class="channel-tooltip-picture" src="intro-to-html/channel-8.jpeg">                    
+                                             <div class="tooltip-datail">
+                                             <p class="channel-tooltip-name">
+                                              Tech Vision                                             </p>
+                                             <p class="channel-tooltip-stats">
+                                               15M subscribers
+                                             </p>
+                                           </div>
+                                           </div>
+                                         </div>
+                                       </div>             
+                                                      <div class="details">
+                                                        <p class="para1">Inside The World's Biggest Passenger Plane</p>
+                                                        <p class="para2">Tech Vision</p>
+                                                        <p class="para3">3.7M views · 10 months ago</p>
+                                                          </div>
+                                                            </div>
+                                                            </div>    
+                                                            </div>
+
+                                                            <div class="div1">
+                                                              <div class="thumbnail-row">
+                                                                <a href="https://www.youtube.com/watch?v=ixmxOlcrlUc" target="_blank">
+                                                                  <img class="one" src="intro-to-html/thumbnail-9.webp">
+                                                                </a>
+                                                                <div class="video-time">13:17</div>
+                                                                  </div>
+                                                                       <div>
+                                                            
+                                                                    <div class="gridi">
+                                                                      <div class="profile">
+                                                                        <div class="profile-picture-container">
+                                                                        <a href="https://www.youtube.com/c/OFFICIALTHENXSTUDIOS" target="_blank">
+                                                                          <img class="profile-pic" src="intro-to-html/channel-9.jpeg">
+                                                                        </a>
+                                                        
+                                                                        <div class="channel-tooltip">
+                                                                          <img class="channel-tooltip-picture" src="intro-to-html/channel-9.jpeg">                    
+                                                                         <div class="tooltip-datail">
+                                                                         <p class="channel-tooltip-name">
+                                                                          ThenX                                         
+                                                                            </p>
+                                                                         <p class="channel-tooltip-stats">
+                                                                           15M subscribers
+                                                                         </p>
+                                                                       </div>
+                                                                       </div>
+                                                                     </div>
+                                                                   </div>             
+                                                                                  <div class="details">
+                                                                                    <p class="para1">
+                                                                                      The SECRET to Super Human STRENGTH</p>
+                                                                                    <p class="para2">ThenX</p>
+                                                                                    <p class="para3">20M views · 3 year ago</p>
+                                                                                      </div>
+                                                                                        </div>
+                                                                                        </div>    
+                                                                                        </div>
+
+                                                                                        <div class="div1">
+                                                                                          <div class="thumbnail-row">
+                                                                                            <a href="https://www.youtube.com/watch?v=R2vXbFp5C9o" target="_blank">
+                                                                                              <img class="one" src="intro-to-html/thumbnail-10.webp">
+                                                                                            </a>
+                                                                                            <div class="video-time">7:53</div>
+                                                                                              </div>
+                                                                                                   <div>
+                                                                                        
+                                                                                                <div class="gridi">
+                                                                                                  <div class="profile">
+                                                                                                    <div class="profile-picture-container">
+                                                                                                    <a href="https://www.youtube.com/user/businessinsider" target="_blank">
+                                                                                                      <img class="profile-pic" src="intro-to-html/channel-10.jpeg">
+                                                                                                    </a>
+                                                                                    
+                                                                                                    <div class="channel-tooltip">
+                                                                                                      <img class="channel-tooltip-picture" src="intro-to-html/channel-10.jpeg">                    
+                                                                                                     <div class="tooltip-datail">
+                                                                                                     <p class="channel-tooltip-name">
+                                                                                                      Business Insider                                         
+                                                                                                        </p>
+                                                                                                     <p class="channel-tooltip-stats">
+                                                                                                       15M subscribers
+                                                                                                     </p>
+                                                                                                   </div>
+                                                                                                   </div>
+                                                                                                 </div>
+                                                                                               </div>             
+                                                                                                              <div class="details">
+                                                                                                                <p class="para1"> How The World's Largest Cruise Ship Makes 30,000 Meals Every Day</p>
+                                                                                                                <p class="para2">Business Insider</p>
+                                                                                                                <p class="para3">14M views · 1 year ago</p>
+                                                                                                                  </div>
+                                                                                                                    </div>
+                                                                                                                    </div>    
+                                                                                                                    </div>
+
+                                                                                                                    <div class="div1">
+                                                                                                                      <div class="thumbnail-row">
+                                                                                                                        <a href="https://www.youtube.com/watch?v=0nZuYyXET3s" target="_blank">
+                                                                                                                          <img class="one" src="intro-to-html/thumbnail-11.webp">
+                                                                                                                        </a>
+                                                                                                                        <div class="video-time">4:10</div>
+                                                                                                                          </div>
+                                                                                                                               <div>
+                                                                                                                    
+                                                                                                                            <div class="gridi">
+                                                                                                                              <div class="profile">
+                                                                                                                                <div class="profile-picture-container">
+                                                                                                                                <a href="https://www.youtube.com/c/Destinationtips" target="_blank">
+                                                                                                                                  <img class="profile-pic" src="intro-to-html/channel-11.jpeg">
+                                                                                                                                </a>
+                                                                                                                
+                                                                                                                                <div class="channel-tooltip">
+                                                                                                                                  <img class="channel-tooltip-picture" src="intro-to-html/channel-11.jpeg">                    
+                                                                                                                                 <div class="tooltip-datail">
+                                                                                                                                 <p class="channel-tooltip-name">
+                                                                                                                                  Destination Tips                                                                                                                                    </p>
+                                                                                                                                 <p class="channel-tooltip-stats">
+                                                                                                                                   15M subscribers
+                                                                                                                                 </p>
+                                                                                                                               </div>
+                                                                                                                               </div>
+                                                                                                                             </div>
+                                                                                                                           </div>             
+                                                                                                                                          <div class="details">
+                                                                                                                                            <p class="para1"> Dubai's Crazy Underwater Train and Other Things #Only in Dubai</p>
+                                                                                                                                            <p class="para2">Destination Tips</p>
+                                                                                                                                            <p class="para3">3M views · 1 year ago</p>
+                                                                                                                                              </div>
+                                                                                                                                                </div>
+                                                                                                                                                </div>    
+                                                                                                                                                </div>
+
+                                                                                                                                                <div class="div1">
+                                                                                                                                                  <div class="thumbnail-row">
+                                                                                                                                                    <a href="https://www.youtube.com/watch?v=9iMGFqMmUFs" target="_blank">
+                                                                                                                                                      <img class="one" src="intro-to-html/thumbnail-12.webp">
+                                                                                                                                                    </a>
+                                                                                                                                                    <div class="video-time">4:51</div>
+                                                                                                                                                      </div>
+                                                                                                                                                           <div>
+                                                                                                                                                
+                                                                                                                                                        <div class="gridi">
+                                                                                                                                                          <div class="profile">
+                                                                                                                                                            <div class="profile-picture-container">
+                                                                                                                                                            <a href="https://www.youtube.com/teded" target="_blank">
+                                                                                                                                                              <img class="profile-pic" src="intro-to-html/channel-12.jpeg">
+                                                                                                                                                            </a>
+                                                                                                                                                
+                                                                                                                                                            <div class="channel-tooltip">
+                                                                                                                                                              <img class="channel-tooltip-picture" src="intro-to-html/channel-12.jpeg">                    
+                                                                                                                                                             <div class="tooltip-datail">
+                                                                                                                                                             <p class="channel-tooltip-name">
+                                                                                                                                                              TED-Ed               
+                                                                                                                                                            </p>                                                                                                                   </p>
+                                                                                                                                                             <p class="channel-tooltip-stats">
+                                                                                                                                                               15M subscribers
+                                                                                                                                                             </p>
+                                                                                                                                                           </div>
+                                                                                                                                                           </div>
+                                                                                                                                                         </div>
+                                                                                                                                                       </div>
+                                                                                                                                                       <div class="details">
+                                                                                                                                            <p class="para1">
+                                                                                                                                              What would happen if you didn’t drink water? - Mia Nacamulli</p>
+                                                                                                                                            <p class="para2">TED-Ed</p>
+                                                                                                                                            <p class="para3">12M views · 5 years ago</p>
+                                                                                                                                              </div>
+                                                                                                                                                </div>
+                                                                                                                                                </div>    
+                                                                                                                                                </div>  
+</div>               
+</body>
+</html>
